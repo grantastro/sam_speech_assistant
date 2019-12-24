@@ -10,9 +10,9 @@ r = sr.Recognizer()
 
 speaker = pyttsx3.init('sapi5')
 voices = speaker.getProperty('voices')
-speaker.setProperty('voice', voices[2].id)
+speaker.setProperty('voice', voices[0].id)
 rate = speaker.getProperty('rate')
-speaker.setProperty('rate', 173)
+speaker.setProperty('rate', 175)
 
 
 def record_audio(ask=False):
@@ -24,9 +24,9 @@ def record_audio(ask=False):
         try:
             voice_data = r.recognize_google(audio)
         except sr.UnknownValueError:
-            sam_speak('Sorry, I did not get that')
+            sam_speak('Sorry, I am afraid I did not get that')
         except sr.RequestError:
-            sam_speak('Sorry, my speech service is down')
+            sam_speak('I am sorry, I am afraid I cannot do that)
         return voice_data
 
 
